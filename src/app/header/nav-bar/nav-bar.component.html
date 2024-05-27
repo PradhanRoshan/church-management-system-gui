@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span style="padding-right: 10px;">KJM</span>
+    <!-- <h1>SimpleCRM</h1> -->
+    <span class="menu-spacer"></span>
+    <div>
+      <a mat-button [routerLink]="'/resistration'" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"> Register </a>
+      <a mat-button [routerLink]="'/active-members'" routerLinkActive="active"> Active Members </a>
+      <a mat-button [routerLink]="'/inactive-members'" routerLinkActive="active"> Inactive Members </a>
+      <a mat-button [routerLink]="'/all-members'" routerLinkActive="active"> All Members </a>
+      <!-- <a mat-button [routerLink]="'/fund-type'" routerLinkActive="active"> Fund Types </a>
+      <a mat-button [routerLink]="'/payment-method'" routerLinkActive="active"> Payment Methods </a> -->
+      <a mat-button [routerLink]="'/tithe-offering'" routerLinkActive="active"> Tithe And Offering </a>
+    </div>
+    <span class="example-spacer"></span>
+  <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"> -->
+    <span>Roshan Pradhan</span>
+  <!-- </button> -->
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>person</mat-icon>
+  </button>
+  </mat-toolbar-row>
+
+  <!-- <mat-toolbar-row>
+        <span style="font-size: 12px;">SimpleCRM helps you easily manage your contacts</span>
+      </mat-toolbar-row> -->
+</mat-toolbar>
+
+
+

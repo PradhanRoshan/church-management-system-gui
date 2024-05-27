@@ -1,0 +1,57 @@
+<footer>
+  <!-- <p>
+        <mat-toolbar color="primary">
+          <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            
+          </button>
+          <span>King Jesus Ministry</span>
+          <span class="example-spacer"></span>
+          <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+            <mat-icon>favorite</mat-icon>
+          </button>
+          <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+            <mat-icon>share</mat-icon>
+          </button>
+        </mat-toolbar>
+      </p>style="display: flex; justify-content: space-between" -->
+
+  <mat-toolbar color="primary" class="mat-elevation-z2">
+    <div class="container">
+      <div class="row footer-host">
+        <div class="col-sm-2">
+          <mat-toolbar-row>
+            <span>King Jesus Ministry</span>
+          </mat-toolbar-row>
+        </div>
+        <div class="col-sm-5">
+          <mat-toolbar-row>
+            <span class="footer-title"
+              >Copyright KJM © {{ currentYear }}. All rights reserved. <br />
+              Designed By: {{ desinedBy }}</span
+            >
+            <!-- <span>Footer Section</span> -->
+          </mat-toolbar-row>
+        </div>
+        <div class="col-sm-5">
+          <mat-toolbar-row>
+            <span class="example-spacer"></span>
+            <button
+              mat-icon-button
+              class="example-icon favorite-icon"
+              aria-label="Example icon-button with heart icon"
+            >
+            <mat-icon>tiktok</mat-icon>
+            </button>
+            <button
+              mat-icon-button
+              class="example-icon"
+              aria-label="Example icon-button with share icon"
+            >
+              <mat-icon>facebook</mat-icon>
+            </button>
+          </mat-toolbar-row>
+        </div>
+      </div>
+    </div>
+  </mat-toolbar>
+</footer>

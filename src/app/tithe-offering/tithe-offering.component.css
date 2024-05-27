@@ -1,0 +1,48 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  .example-option-img {
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  
+  [dir='rtl'] .example-option-img {
+    margin-right: 0;
+    margin-left: 8px;
+  }
+
+  /* Creating aligined field */
+.field-full-width {
+  width: 100%;
+}
+.field-qat-width{
+  width: 75%;
+}
+.field-half-width{
+  width: 50%;
+}
+.field-min-width{
+  width: 25%;
+}
+
+
+.tith-form-fields {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.tith-container mat-form-field + mat-form-field {
+  margin-left: 8px;
+}
+.hide-icon{
+  visibility: hidden;
+}
+  

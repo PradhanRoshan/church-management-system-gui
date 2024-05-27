@@ -1,0 +1,175 @@
+<!-- <p>tithe-offering works!</p> -->
+
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+  <mat-tab label="Tithe And Offering">
+
+    <br>    
+
+<form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Member Name</mat-label>
+
+    <input
+      matInput
+      aria-label="State"
+      [matAutocomplete]="auto"
+      [formControl]="stateCtrl"
+    />
+    <!-- <mat-select [formControl]="selectedMember"  > -->
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option
+        (onSelectionChange)="theValueSelected(state)"
+        *ngFor="let state of filteredStates | async"
+        [value]="state.firstName + ' ' + state.lastName"
+      >
+        <small>ID: {{ state.memberId }}</small> |
+        <span>{{ state.firstName + " " + state.lastName }}</span>
+      </mat-option>
+    </mat-autocomplete>
+    <!-- </mat-select> -->
+  </mat-form-field>
+
+  <br />
+
+  <!-- <mat-slide-toggle
+      [checked]="stateCtrl.disabled"
+      (change)="stateCtrl.disabled ? stateCtrl.enable() : stateCtrl.disable()">
+      Disable Input?
+    </mat-slide-toggle> -->
+</form>
+
+<!-- {{members|json}} -->
+
+<div *ngIf="valueSelected">
+  <hr />
+
+  <h1>{{ selectedMemberName }}</h1>
+
+  <div class="tith-container">
+    <form [formGroup]="tietheOfferingForm">
+
+      <div formArrayName="titheOffering">
+
+        <div *ngFor="let item of titheOffering.controls; let i=index ">
+          <div *ngIf="i<fundTypes.length" [formGroupName]="i">
+            <h2>form of {{i}}</h2>
+
+            <div [formGroup]="formArrays">
+           
+
+            <mat-form-field class="example-half-width" appearance="fill">
+              <mat-label>Fund Methods</mat-label>
+              <mat-select formControlName="fundTypeID">
+                <mat-option *ngFor="let funds of fundTypes" value={{funds.fundTypeID}}>{{ funds.fundTypeName}}</mat-option>
+                <!-- <mat-option value="lol"> Offering</mat-option>
+                <mat-option value="lol"> Christmas</mat-option> -->
+              </mat-select>
+            </mat-form-field>
+        
+            
+            <mat-form-field class="example-half-width" appearance="fill">
+              <mat-label>Payment Methods</mat-label>
+              <mat-select  formControlName="paymentMethodId">
+                <mat-option *ngFor="let payment of paymentTypes" value={{payment.paymentMethodId}}>{{ payment.paymentMethodName}}</mat-option>
+                <!-- <mat-option value="lol"> card</mat-option>
+                <mat-option value="lol"> debit</mat-option> -->
+              </mat-select>
+            </mat-form-field>
+        
+            <mat-form-field class="example-half-width" appearance="fill">
+              <mat-label>Amount</mat-label>
+              <input formControlName="amountContributed" matInput type="number" />
+            </mat-form-field>
+            
+            &nbsp;
+
+            <span [ngClass]="titheOffering.controls.length===fundTypes.length || i !== titheOffering.controls.length-1? 'hide-icon':''">
+               <mat-action-row >
+              <button
+                mat-fab
+                color="primary"
+                aria-label="Example icon button with a home icon"
+                (click)="onAddClick()"
+              >
+                <mat-icon>add</mat-icon>
+              </button>
+            </mat-action-row>
+            </span>
+           
+
+            &nbsp;
+
+            <span [ngClass]="titheOffering.controls.length===1? 'hide-icon':''">
+
+              <mat-action-row >
+              <button
+                mat-fab
+                color="warn"
+                aria-label="Example icon button with a home icon"
+                (click)="onDeleteClick(i)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </mat-action-row>
+            </span>
+            
+            <div>
+              <mat-form-field class="field-min-width">
+                <mat-label>Leave a Note</mat-label>
+                <textarea formControlName="fundNote" matInput #input maxlength="50" placeholder="Ex. It makes me feel..."></textarea>
+                <mat-hint align="end">{{input.value.length}}/50</mat-hint>
+              </mat-form-field>
+            </div>
+
+            </div>
+
+            
+
+          </div>
+          
+
+        </div>
+
+
+      </div>
+
+    &nbsp;
+    
+    <div >
+      The total Contribute Amount = <strong>{{totalAmount}}</strong>
+    </div>
+    &nbsp;
+<div>
+  <button mat-raised-button color="primary" (click)="onFormSubmit()">Submit</button>
+</div>
+    
+
+
+    </form>
+    
+  </div>
+</div>
+
+
+  </mat-tab>
+
+  <!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
+  <mat-tab label="Fund Types">
+    <br>
+    <app-fund-types></app-fund-types>
+    <br>
+  </mat-tab>
+
+  <!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
+
+  <mat-tab label="Payment Methods">
+    <br>
+
+      <app-payment-methods></app-payment-methods>
+
+    <br>
+  </mat-tab>
+</mat-tab-group>
+
+
+

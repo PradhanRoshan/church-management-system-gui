@@ -1,0 +1,22 @@
+/* .example-spacer {
+    flex: 1 1 auto;
+  } */
+
+  .footer-host {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 600;
+    height: 60px;
+    /* background-color: #ececec; */
+  }
+
+  .footer-title{
+    /* color: aqua; */
+    text-align: center;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 1.5;
+  }

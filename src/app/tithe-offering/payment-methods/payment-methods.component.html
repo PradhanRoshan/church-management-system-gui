@@ -1,0 +1,86 @@
+<p *ngIf="paymentMethodPresent" style="color: red">
+  Fund Name is Already present.
+</p>
+<mat-toolbar-row>
+  <!-- <div class="register-form-fields register-container"> -->
+
+  <mat-form-field class="field-min-width" appearance="outline">
+    <mat-label>Payment Methods</mat-label>
+    <input
+      matInput
+      placeholder="Enter Fund Type"
+      [(ngModel)]="paymentTypeName"
+    />
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-error> Please Enter Valid Name </mat-error>
+  </mat-form-field>
+
+  <!-- <span class="example-spacer"></span> -->
+  &nbsp; &nbsp;
+  <button
+    mat-fab
+    color="warn"
+    aria-label="Example icon button with a home icon"
+    (click)="onAddClick()">
+    <mat-icon>add</mat-icon>
+  </button>
+  <!-- </div> -->
+</mat-toolbar-row>
+
+
+<!-- //////////////////////////////OndEleteModal///////////////// -->
+
+<ng-template #OnDeletePaymentType>
+  <h1 mat-dialog-title style="text-align: center; color: #3F51B5;">
+    <mat-icon>delete</mat-icon> Delete Fund Type
+  </h1>
+  
+  <mat-dialog-content>
+   
+    <P style="color: black;">Please confirm you are deleting <strong style="color: dodgerblue;">{{selectedPaymentName}}</strong> fundType. <br> Once you delete, it cannot be undo.</P>
+  </mat-dialog-content> 
+  <mat-dialog-actions align="center">
+    <button mat-raised-button color="primary" (click)="onDeletClick()">
+      DELETE
+    </button>
+    <button mat-raised-button (click)="onCancleClick()" color="warn">
+      CANCEL
+    </button>
+  </mat-dialog-actions>
+</ng-template>
+<!-- //////////////////////////////OndEleteModal///////////////// -->
+
+
+<section class="example-container mat-elevation-z8" tabindex="0">
+
+<table mat-table [dataSource]="dataSource" >
+  <!-- Position Column -->
+  <ng-container matColumnDef="payment-id">
+    <th mat-header-cell *matHeaderCellDef>No.</th>
+    <td mat-cell *matCellDef="let element">{{ element.paymentMethodId }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="payment-name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.paymentMethodName }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="payment-action">
+    <th mat-header-cell *matHeaderCellDef>Action</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button color="warn" (click)="onDeletePaymentClick(element)">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="delete"
+        ></mat-icon>
+        Delete
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+</section>

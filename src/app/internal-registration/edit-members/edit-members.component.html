@@ -1,0 +1,273 @@
+
+<div style="margin: 30px; text-align: center;  color: rgb(3, 95, 200);"> 
+    <span  class="mat-headline-2">Update Member</span> 
+  </div>
+  
+  <div class="formStyle">
+  <form class="register-form" [formGroup]="editMemberForm" (ngSubmit)="onFormSubmit()"> 
+    <mat-divider></mat-divider>
+    <div style="margin-top: 10px; margin-bottom: 0; text-align: center; color: rgb(3, 95, 200);" class="mat-headline-4">Member Information</div>
+  
+    <div class="register-form-fields register-container">
+      <mat-form-field class="field-full-width" appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input
+          matInput
+          placeholder="first name"
+          formControlName="firstName"      
+        />
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-error>
+          Please Enter Valid Name
+        </mat-error>
+        
+  
+        <!-- <mat-error *ngIf="registerMemberForm.hasError('firstName') && !registerMemberForm.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="registerMemberForm.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> -->
+        
+      </mat-form-field>
+     
+  
+      <mat-form-field class="field-half-width" appearance="outline">
+        <mat-label>Middle Name</mat-label>
+        <input
+          matInput
+          placeholder="middel name"
+          formControlName="middleName"
+         
+        />
+        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        
+      </mat-form-field>
+  
+      <mat-form-field class="field-full-width" appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input
+          matInput
+          placeholder="first name"
+          formControlName="lastName"
+          required
+        />
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-error>
+          <span>Please Enter Valid Last Name</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  
+    <div class="register-form-fields register-container">
+      <mat-form-field class="field-full-width" appearance="outline">
+        <mat-label>Date Of Birth</mat-label>
+        <input
+          type="date"
+          matInput
+          formControlName="memberDob"
+          required
+        />
+        <mat-error>
+          Select Data of Birth
+        </mat-error>
+      </mat-form-field>
+      
+      <mat-form-field class="field-full-width" appearance="outline">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender" required> 
+          <mat-option   value="Male">Male</mat-option>
+          <mat-option   value="Female">Female</mat-option>
+        </mat-select>
+  
+        <mat-error>
+          Please choose gender
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field class="field-full-width" appearance="outline">
+        <mat-label>Marital Status</mat-label>
+        <mat-select formControlName="maritalStatus" required> 
+          <mat-option   value="Married">Married</mat-option>
+          <mat-option   value="Single">Single</mat-option>
+        </mat-select>
+        <mat-error>
+          Please choose one
+        </mat-error>
+      </mat-form-field>
+    </div>
+  
+    <div class="register-form-fields register-container">
+      <mat-form-field class="field-full-width" appearance="outline">
+        <mat-label>Email ID</mat-label>
+        <input
+        type="email"
+          matInput
+          placeholder="abc@abc.com"
+          formControlName="emailId"
+          required
+        />
+        <mat-icon matSuffix>mail</mat-icon>
+        <mat-error >
+          Please enter a valid email address
+        </mat-error>
+        <!-- <mat-error *ngIf="registerMemberForm.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> -->
+      </mat-form-field>
+  
+      <mat-form-field class="field-half-width" appearance="outline">
+        <mat-label>Phone </mat-label>
+        <input
+          matInput
+          placeholder="000-000-0000"
+          formControlName="phone"
+          maxlength="10"
+        />
+        <mat-icon matSuffix>contact_phone</mat-icon>
+        <mat-error>
+          Please Enter Valid Phone No
+        </mat-error>
+      </mat-form-field>
+  
+    </div>
+  
+    <mat-divider></mat-divider>
+  
+    <div style="margin-bottom: 0; padding-top: 10px; text-align: center; color: rgb(3, 95, 200);" class="mat-headline-4">Address</div>
+  <div formGroupName="address"> 
+    <div class="register-form-fields register-container">
+      <mat-form-field class="field-full-width" appearance="outline">
+        <mat-label>Street Name</mat-label>
+        <input
+          matInput
+          placeholder="1111 Mill Place Ct"
+          formControlName="street"
+          required
+        />
+        <mat-icon matSuffix>house</mat-icon>
+        <mat-error>
+          Please Enter Street name
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field class="field-half-width" appearance="outline">
+        <mat-label>Apartment No </mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="AA/111"
+          formControlName="aptNo"      
+        />
+        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+      </mat-form-field>
+  
+    
+    </div>
+    
+  
+    <div class="register-form-fields register-container">
+      <mat-form-field class="field-half-width" appearance="outline">
+        <mat-label>City</mat-label>
+        <input
+          matInput
+          placeholder="Richmond"
+          formControlName="city"
+          required
+        />
+        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        <mat-error>
+          Please Enter city
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="field-half-width">
+        <mat-label>State</mat-label>
+        <mat-select formControlName="state"  >
+          <mat-option value="AL">Alabama</mat-option>
+          <mat-option value="AK">Alaska</mat-option>
+          <mat-option value="AZ">Arizona</mat-option>
+          <mat-option value="AR">Arkansas</mat-option>
+          <mat-option value="CA">California</mat-option>
+          <mat-option value="CO">Colorado</mat-option>
+          <mat-option value="CT">Connecticut</mat-option>
+          <mat-option value="DE">Delaware</mat-option>
+          <mat-option value="DC">District Of Columbia</mat-option>
+          <mat-option value="FL">Florida</mat-option>
+          <mat-option value="GA">Georgia</mat-option>
+          <mat-option value="HI">Hawaii</mat-option>
+          <mat-option value="ID">Idaho</mat-option>
+          <mat-option value="IL">Illinois</mat-option>
+          <mat-option value="IN">Indiana</mat-option>
+          <mat-option value="IA">Iowa</mat-option>
+          <mat-option value="KS">Kansas</mat-option>
+          <mat-option value="KY">Kentucky</mat-option>
+          <mat-option value="LA">Louisiana</mat-option>
+          <mat-option value="ME">Maine</mat-option>
+          <mat-option value="MD">Maryland</mat-option>
+          <mat-option value="MA">Massachusetts</mat-option>
+          <mat-option value="MI">Michigan</mat-option>
+          <mat-option value="MN">Minnesota</mat-option>
+          <mat-option value="MS">Mississippi</mat-option>
+          <mat-option value="MO">Missouri</mat-option>
+          <mat-option value="MT">Montana</mat-option>
+          <mat-option value="NE">Nebraska</mat-option>
+          <mat-option value="NV">Nevada</mat-option>
+          <mat-option value="NH">New Hampshire</mat-option>
+          <mat-option value="NJ">New Jersey</mat-option>
+          <mat-option value="NM">New Mexico</mat-option>
+          <mat-option value="NY">New York</mat-option>
+          <mat-option value="NC">North Carolina</mat-option>
+          <mat-option value="ND">North Dakota</mat-option>
+          <mat-option value="OH">Ohio</mat-option>
+          <mat-option value="OK">Oklahoma</mat-option>
+          <mat-option value="OR">Oregon</mat-option>
+          <mat-option value="PA">Pennsylvania</mat-option>
+          <mat-option value="RI">Rhode Island</mat-option>
+          <mat-option value="SC">South Carolina</mat-option>
+          <mat-option value="SD">South Dakota</mat-option>
+          <mat-option value="TN">Tennessee</mat-option>
+          <mat-option value="TX">Texas</mat-option>
+          <mat-option value="UT">Utah</mat-option>
+          <mat-option value="VT">Vermont</mat-option>
+          <mat-option value="VA">Virginia</mat-option>
+          <mat-option value="WA">Washington</mat-option>
+          <mat-option value="WV">West Virginia</mat-option>
+          <mat-option value="WI">Wisconsin</mat-option>
+          <mat-option value="WY">Wyoming</mat-option>
+        </mat-select>
+        <mat-error>
+          Please select state
+        </mat-error>
+      </mat-form-field>
+  
+      
+  
+      <mat-form-field appearance="outline" class="field-half-width">
+        <mat-label>Postal Code</mat-label>
+        <input
+          formControlName="zip"
+          matInput
+          #postalCode
+          minlength="5"
+          maxlength="5"
+          placeholder="Ex. 94105"
+          
+        />
+        <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
+        <mat-error>
+          Please Enter Valid zip
+        </mat-error>
+      </mat-form-field>
+  
+    
+    </div>
+    
+  </div>
+  <button  mat-raised-button color="primary" [disabled]="!editMemberForm.valid">UPDATE</button>
+  
+  
+  </form>
+  
+  </div>
+  
