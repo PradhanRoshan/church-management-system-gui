@@ -26,8 +26,8 @@ export class MembersService {
   _allInactiveMembersData$ = new BehaviorSubject<MembersModule[]>([]);
 
   constructor(private http:HttpClient) { 
-
-    this.membersBaseApi='http://localhost:8080/api';
+    // this.membersBaseApi='http://localhost:8080/api';
+    this.membersBaseApi='https://church-management-system-api.onrender.com/api';
 
   }
 // get-member/{memberId}

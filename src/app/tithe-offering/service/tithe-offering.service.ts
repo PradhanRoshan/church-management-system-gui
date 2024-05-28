@@ -21,7 +21,8 @@ export class TitheOfferingService {
 
 
   constructor(private http: HttpClient) {
-    this.titheOfferingBaseApi = "http://localhost:8080"
+    // this.titheOfferingBaseApi = "http://localhost:8080"
+    this.titheOfferingBaseApi = "https://church-management-system-api.onrender.com"
   }
 
 
